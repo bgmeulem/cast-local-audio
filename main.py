@@ -300,6 +300,7 @@ if __name__ == "__main__":
     video = args.filename
     subs = args.subtitles
     if video is None: raise ValueError("Please pass a video file")
+    assert os.path.exists(video), "Could not find {}".format(video)
     potential_srt_path = os.path.splitext(video)[0] + ".srt"
     if subs == "" and os.path.exists(potential_srt_path): 
         srt_path = potential_srt_path
