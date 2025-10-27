@@ -1,17 +1,3 @@
-"""
-Cast muted video with working subtitles using catt,
-while keeping local mpv audio playback perfectly in sync.
-
-Cross-platform: works on Linux, macOS, and Windows.
-
-Requirements:
-  pychromecast 
-  RangeHTTPServer
-  `catt` available on your PATH.
-
-Usage:
-  uv run python cast_local_audio.py /path/to/movie.mkv
-"""
 import os, sys, time, tempfile, threading, subprocess, platform
 import pychromecast
 import argparse
@@ -299,7 +285,6 @@ def reset_chromecast():
 if __name__ == "__main__":
     parser = MyParser()
     parser = MyParser(
-        prog='Cast',
         description='Cast video to Chromecast using catt (Cast All The Things). Extended to allow splitting video and audio stream, keeping audio playing locally. Useful when stream to e.g. a beamer or tv, but you want the audio to play on headphones or Bluetooth speakers, connected to the hosting device.'
     )
     parser.add_argument('filename', nargs="?", help="Path of a video file.")
